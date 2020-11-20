@@ -1,0 +1,61 @@
+mixin nav_item(word)
+  a.nav__link(href= '#' + word)
+    for symbol in word
+      span.nav__link-span= symbol
+
+mixin nav
+  nav.nav.hidden
+    .nav__container
+      +nav_item('home')
+      +nav_item('risquis')
+      +nav_item('gallery')
+      +nav_item('nostrud')
+      +nav_item('contact')
+
+mixin nav_button
+  .nav-button
+    .nav-button__container
+      .nav-button__disable
+        <svg class="nav-button__disable-img" width="49" height="38" viewBox="0 0 49 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0.199158H38L46 5.69916H0V0.199158Z" fill="#EBEBEB"/>
+        <rect y="16.1992" width="48.5" height="5.5" fill="#EBEBEB"/>
+        <rect y="32.1992" width="48.5" height="5.5" fill="#EBEBEB"/>
+        </svg>
+
+      .nav-button__active.nav-button__active--disable
+        <svg class="nav-button__active-img" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.73694 35.248L38.985 -1.87075e-06L42.5205 3.53553L3.53553 42.5205L3.73694 35.248Z" fill="#EBEBEB"/>
+        <rect x="11.7178" y="4.92004" width="42.0627" height="5" transform="rotate(45 11.7178 4.92004)" fill="#EBEBEB"/>
+        </svg>
+
+mixin home
+  section.home#home
+    canvas.home__background
+    h1.home__title Excepteur<br>sint occaecat<br>cupidatat
+    .home__info-container
+      h2.home__info viverra<br>consequat semper
+      h2.home__info tortor<br>posuere
+    .home__socials
+      a.home__socials-item#instagram-link(href="https://instagram.com", target="_blank")
+      a.home__socials-item#facebook-link(href="https://facebook.com", target="_blank")
+      a.home__socials-item#twitter-link(href="https://twitter.com", target="_blank")
+
+mixin risquis
+  section.section.risquis#risquis
+    h1.section__title.risquis__title.section__title--hidden risquis
+    .section__inner.risquis__inner
+      .section__content.risquis__content
+        .section__content-inner
+          h2.section__content-title pulvinar mattis
+          .section__content-text Sed blandit libero volutpat sed cras ornare. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Tincidunt lobortis feugiat vivamus at. Luctus accumsan tortor posuere ac ut consequat semper viverra nam.
+      .section__illustration
+        .section__illustration-item.section__illustration-item-1
+        .section__illustration-item.section__illustration-item-2
+        .section__illustration-item.section__illustration-item-3
+      .section__decor.section__decor-1.risquis__decor-1
+      .section__decor.section__decor-2.risquis__decor-2
+    .section__ticker.risquis__ticker
+      p.section__ticker-text Aliquam nulla facilisi cras fermentum. Ornare aenean euismod elementum nisi.
+
+mixin gallery
+  section.gallery#gallery

@@ -1,0 +1,150 @@
+@media screen and (max-height: 568px) {
+  .nav__link {
+    margin: -3px 0;
+    width: 163px;
+
+    &-span {
+      font-size: 39px;
+    }
+  }
+}
+@media screen and (max-height: 400px) {
+  .nav__link {
+    margin: -10px 0;
+    width: 150px;
+    transform: translateY(-20px);
+
+    &-span {
+      font-size: 35px;
+    }
+  }
+}
+@media screen and (min-width: 430px) {
+  .home {
+    &__socials {
+      right: $medium-screen-margin;
+      bottom: $medium-home-bottom-margin;
+    }
+    &__info-container {
+      left: $medium-screen-margin;
+      bottom: $medium-home-bottom-margin;
+    }
+    &__title {
+      font-size: 43px;
+      width: 275px;
+    }
+  }
+  .nav-button {
+    right: $medium-screen-margin;
+    top: $medium-home-bottom-margin;
+  }
+}
+@media screen and (min-width: 750px) {
+  .home {
+    &__title {
+      font-size: 47px;
+      width: 301px;
+    }
+  }
+  .nav-button {
+    transform: scale(1.1);
+  }
+  .nav__link {
+    transform: translateX(-7vw);
+  }
+}
+@media screen and (min-height: 900px) {
+  .home {
+    &__title {
+      font-size: 60px;
+      width: 384px;
+    }
+    &__socials {
+      transform: scale(1.2);
+    }
+  }
+  .nav-button {
+    transform: scale(1.3);
+  }
+  .nav__link {
+    font-size: 80px;
+    margin: 10px 0;
+  }
+}
+@media screen and (min-height: 1050px) {
+  .home {
+    &__socials {
+      transform: scale(1.4);
+    }
+  }
+  .nav-button {
+    transform: scale(1.5);
+  }
+}
+@media screen and (min-height: 1200px) {
+  .home {
+    &__title {
+      font-size: 90px;
+      width: 577px;
+    }
+    &__socials {
+      transform: scale(1.6);
+    }
+  }
+  .nav__link {
+    font-size: 90px;
+    margin: 12px 0;
+  }
+}
+@media screen and (min-height: 1300px) {
+  .nav-button {
+    transform: scale(1.8);
+  }
+}
+@media screen and (min-width: 800px) {
+  .home {
+    &__title {
+      font-size: 60px;
+      width: 577px;
+    }
+  }
+  .section__ticker-text {
+    animation-duration: 14s;
+  }
+}
+@media screen and (min-width: 1170px) {
+  .home {
+    &__socials {
+      right: $large-screen-margin;
+    }
+    &__info-container {
+      left: $large-screen-margin;
+    }
+    &__socials {
+      transform: scale(1.2);
+    }
+  }
+  .nav-button {
+    right: $large-screen-margin;
+  }
+}
+@media screen and (orientation: landscape) {
+  .home {
+    &__title {
+      left: 27%;
+      transform: translateY(-50%);
+    }
+  }
+  .section {
+    &__title {
+      transform: translate(-1px, -10.5px);
+
+      &--hidden {
+        transform: translate(-1px, -10.5px) translateY(-50px);
+      }
+    }
+    &__ticker-text {
+      animation-duration: 10s;
+    }
+  }
+}

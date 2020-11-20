@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Sint Occaecat
+    link(rel="stylesheet", href="css/style.css")
+    link(rel="shortcut icon", href="images/favicon.ico", type="image/x-icon")
+  body
+    include mixins.pug
+    +nav_button
+    +nav
+    main.main
+      +home
+      +risquis
+      +gallery
+    script(src="javascript/main.js")
+    img.webp-tester(src="images/test.webp", alt="")
