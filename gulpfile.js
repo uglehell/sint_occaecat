@@ -159,14 +159,13 @@ const devFunction = {
             title: 'JAVASCRIPT error',
             message: 'error <%= error.message %>'
           })(error)
-          this.emit('end')
         }
       }))
       .pipe(concat('main.js'))
-      .pipe(babel({
-        presets: ['@babel/env']
-      }))
-      .pipe(uglify())
+      // .pipe(babel({
+      //   presets: ['@babel/env']
+      // }))
+      // .pipe(uglify())
       .pipe(gulp.dest(path.dist.scripts))
       .pipe(browserSync.reload({ stream: true }))
 
