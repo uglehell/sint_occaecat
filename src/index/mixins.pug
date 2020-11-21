@@ -16,17 +16,9 @@ mixin nav_button
   .nav-button
     .nav-button__container
       .nav-button__disable
-        <svg class="nav-button__disable-img" width="49" height="38" viewBox="0 0 49 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 0.199158H38L46 5.69916H0V0.199158Z" fill="#EBEBEB"/>
-        <rect y="16.1992" width="48.5" height="5.5" fill="#EBEBEB"/>
-        <rect y="32.1992" width="48.5" height="5.5" fill="#EBEBEB"/>
-        </svg>
-
+        <svg class="nav-button__disable-img" width="49" height="38" viewBox="0 0 49 38" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0.199158H38L46 5.69916H0V0.199158Z" fill="#fff"/><rect y="16.1992" width="48.5" height="5.5" fill="#fff"/><rect y="32.1992" width="48.5" height="5.5" fill="#fff"/></svg>
       .nav-button__active.nav-button__active--disable
-        <svg class="nav-button__active-img" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3.73694 35.248L38.985 -1.87075e-06L42.5205 3.53553L3.53553 42.5205L3.73694 35.248Z" fill="#EBEBEB"/>
-        <rect x="11.7178" y="4.92004" width="42.0627" height="5" transform="rotate(45 11.7178 4.92004)" fill="#EBEBEB"/>
-        </svg>
+        <svg class="nav-button__active-img" width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.73694 35.248L38.985 -1.87075e-06L42.5205 3.53553L3.53553 42.5205L3.73694 35.248Z" fill="#fff"/><rect x="11.7178" y="4.92004" width="42.0627" height="5" transform="rotate(45 11.7178 4.92004)" fill="#fff"/></svg>
 
 mixin home
   section.home#home
@@ -36,9 +28,9 @@ mixin home
       h2.home__info viverra<br>consequat semper
       h2.home__info tortor<br>posuere
     .home__socials
-      a.home__socials-item#instagram-link(href="https://instagram.com", target="_blank")
-      a.home__socials-item#facebook-link(href="https://facebook.com", target="_blank")
-      a.home__socials-item#twitter-link(href="https://twitter.com", target="_blank")
+      a.home__socials-item#instagram-link(href="https://instagram.com", target="_blank", rel="noopener")
+      a.home__socials-item#facebook-link(href="https://facebook.com", target="_blank", rel="noopener")
+      a.home__socials-item#twitter-link(href="https://twitter.com", target="_blank", rel="noopener")
 
 mixin risquis
   section.section.risquis#risquis
@@ -48,11 +40,11 @@ mixin risquis
         .section__content-inner
           h2.section__content-title pulvinar mattis
           .section__content-text Sed blandit libero volutpat sed cras ornare. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Tincidunt lobortis feugiat vivamus at. Luctus accumsan tortor posuere ac ut consequat semper viverra nam.
-      .section__illustration
+      .section__illustration.risquis__illustration
         .section__illustration-container
-          .section__illustration-item.section__illustration-item-1
-          .section__illustration-item.section__illustration-item-2
-          .section__illustration-item.section__illustration-item-3
+          .section__illustration-item.section__illustration-item-1.risquis__illustration-item-1
+          .section__illustration-item.section__illustration-item-2.risquis__illustration-item-2
+          .section__illustration-item.section__illustration-item-3.risquis__illustration-item-3
         .section__decor.section__decor-1.risquis__decor-1
         .section__decor.section__decor-2.risquis__decor-2
     .section__ticker.risquis__ticker
@@ -60,3 +52,55 @@ mixin risquis
 
 mixin gallery
   section.gallery#gallery
+    h1.section__title.gallery__title.section__title--hidden gallery
+    .gallery__swiper.swiper-container
+      .swiper-wrapper
+        .gallery-swiper-slide.swiper-slide
+        .gallery-swiper-slide.swiper-slide
+        .gallery-swiper-slide.swiper-slide
+        .gallery-swiper-slide.swiper-slide
+        .gallery-swiper-slide.swiper-slide
+      .swiper-pagination.gallery__pagination
+      .swiper-button-prev.swiper-button--disabled
+        <svg width="49" height="101" viewBox="0 0 49 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.7739 50.5L49 3.88462L42.598 0L0 50.5L42.598 101L49 97.1154L14.7739 50.5Z" fill="#444"/></svg>
+      .swiper-button-next
+        <svg width="49" height="101" viewBox="0 0 49 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.7739 50.5L49 3.88462L42.598 0L0 50.5L42.598 101L49 97.1154L14.7739 50.5Z" fill="#444"/></svg>
+
+mixin empty
+  section.empty
+    canvas.empty__canvas
+
+mixin nostrud
+  section.section.nostrud#nostrud
+    h1.section__title.nostrud__title.section__title--hidden nostrud
+    .section__inner.nostrud__inner
+      .section__content.nostrud__content
+        .section__content-inner
+          h2.section__content-title nisi ut aliquip
+          .section__content-text Consectetur a erat nam at lectus urna. Est ultricies integer quis auctor elit sed vulputate mi. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare. Dolor sit amet consectetur adipiscing elit.
+      .section__illustration.nostrud__illustration
+        .section__illustration-container
+          .section__illustration-item.section__illustration-item-1.nostrud__illustration-item-1
+          .section__illustration-item.section__illustration-item-2.nostrud__illustration-item-2
+          .section__illustration-item.section__illustration-item-3.nostrud__illustration-item-3
+        .section__decor.section__decor-1.nostrud__decor-1
+        .section__decor.section__decor-2.nostrud__decor-2
+    .section__ticker.nostrud__ticker
+      p.section__ticker-text Facilisis leo vel fringilla est ullamcorper eget. Scelerisque fermentum dui.
+
+mixin contact
+  section.contact#contact
+    h1.section__title.contact__title.section__title--hidden contact
+    .contact__message
+      .contact__message-title.section__content-title information
+      .contact__message-text You can share your opinion about the landing page, tell about my mistakes, I am newer in web design, and I will be glad to any feedback
+    .contact__links
+      .contact__links-title my links
+      .contact__links-email
+        .contact__email-title email:
+        .contact__email-text example@mail.qwe
+      .contact__links-telegram
+        .contact__telegram-title telegram:
+        .contact__telegram-text @telegram
+    .contact__decor.contact__decor-1
+    .contact__decor.contact__decor-2

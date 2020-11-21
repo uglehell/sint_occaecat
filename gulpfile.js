@@ -1,18 +1,19 @@
 "use strict"
 
-const gulp         = require('gulp')
-const sass         = require('gulp-sass')
-const pug          = require('gulp-pug')
-const babel        = require('gulp-babel')
-const plumber      = require('gulp-plumber')
-const imagemin     = require('gulp-imagemin')
-const concat       = require('gulp-concat')
-const autoprefixer = require('gulp-autoprefixer')
-const uglify       = require('gulp-uglify')
-const notify       = require('gulp-notify')
-const browserSync  = require('browser-sync')
-const newer        = require('gulp-newer')
-const del          = require('del')
+const gulp              = require('gulp')
+const sass              = require('gulp-sass')
+const pug               = require('gulp-pug')
+const babel             = require('gulp-babel')
+const plumber           = require('gulp-plumber')
+const imagemin          = require('gulp-imagemin')
+const concat            = require('gulp-concat')
+const autoprefixer      = require('gulp-autoprefixer')
+const uglify            = require('gulp-uglify-es').default
+const notify            = require('gulp-notify')
+const browserSync       = require('browser-sync')
+const newer             = require('gulp-newer')
+const del               = require('del')
+const removeCssComments = require('gulp-strip-css-comments')
 
 
 const path = {
@@ -144,15 +145,16 @@ const devFunction = {
           })(error)
         }
       }))
-      .pipe(autoprefixer({ cascade: true }))
       .pipe(sass({ outputStyle: 'compressed' }))
+      .pipe(removeCssComments())
+      .pipe(autoprefixer({ cascade: true }))
       .pipe(gulp.dest(path.dist.style))
       .pipe(browserSync.reload({ stream: true }))
   
     done()
   },
   scripts: done => {
-    gulp.src(path.src.scripts)
+    gulp.src(['src/scripts/swiper-bundle.js', 'src/scripts/main.js'])
       .pipe(plumber({
         errorHandler: error => {
           notify.onError({
@@ -165,7 +167,7 @@ const devFunction = {
       // .pipe(babel({
       //   presets: ['@babel/env']
       // }))
-      // .pipe(uglify())
+      .pipe(uglify())
       .pipe(gulp.dest(path.dist.scripts))
       .pipe(browserSync.reload({ stream: true }))
 
