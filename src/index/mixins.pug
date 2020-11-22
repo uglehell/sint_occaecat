@@ -92,15 +92,16 @@ mixin contact
   section.contact#contact
     h1.section__title.contact__title.section__title--hidden contact
     .contact__message
-      .contact__message-title.section__content-title information
-      .contact__message-text You can share your opinion about the landing page, tell about my mistakes, I am newer in web design, and I will be glad to any feedback
+      .contact__message-inner
+        .contact__message-title.section__content-title information
+        .contact__message-text You can share your opinion about the landing page, tell about my mistakes, I am newer in web design, and I will be glad to any feedback
     .contact__links
       .contact__links-title my links
       .contact__links-email
         .contact__email-title email:
-        .contact__email-text example@mail.qwe
+        a.contact__email-text(href="mailto:s.iom@mail.ru", target="_blank") s.iom@mail.ru
       .contact__links-telegram
         .contact__telegram-title telegram:
-        .contact__telegram-text @telegram
+        a.contact__telegram-text(href="https://t.me/uglehell", target="_blank") @uglehell
     .contact__decor.contact__decor-1
     .contact__decor.contact__decor-2

@@ -7,7 +7,7 @@ const windowSize = {
 }
 
 window.addEventListener('resize', () => {
-  if (innerWidth != windowSize.width || innerHeight < windowSize.height) location.reload()
+  // if (innerWidth != windowSize.width || innerHeight < windowSize.height) location.reload()
 })
 
 // remove loading
@@ -53,6 +53,7 @@ const navCallback = () => {
     }, 500)
   }
 }
+
 const navLinkCallback = () => {
   navigation.isActive = false
 
@@ -699,8 +700,8 @@ const contact = {
   links: document.querySelector('.contact__links'),
   message: document.querySelector('.contact__message'),
   decor: {
-    first: document.querySelector('.content__contact__decor-1'),
-    second: document.querySelector('.content__contact__decor-2')
+    first: document.querySelector('.contact__decor-1'),
+    second: document.querySelector('.contact__decor-2')
   }
 }
 
@@ -760,10 +761,8 @@ window.addEventListener('scroll', () => {
   }
 
   // contact parallax on mobile version
-  if (!PCVersion) {
-    if (pageYOffset > innerHeight * 4) {
-      contact.links.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 5) * .5}px)`
-    }
+  if (pageYOffset > innerHeight * 4) {
+    contact.links.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 5) * .5}px)`
   }
 })
 
@@ -792,19 +791,19 @@ PCVersion = true
 
 // contact parallax
 
-// document.addEventListener('mousemove', event => {
-//   if (pageYOffset > innerHeight * 4) {
-//     contact.links.style.transform = `translate(-50%, -50%) translate3d(${
-//       (event.clientX - innerHeight / 2) * .02
-//     }px, ${
-//       (event.clientY - innerHeight / 2) * .02
-//     }px, 0)`
-//     contact.message.style.transform = `translate(-10%, -50%) translate3d(${
-//       -(event.clientX - innerHeight / 2) * .01
-//     }px, ${
-//       -(event.clientY - innerHeight / 2) * .01
-//     }px, 0)`
-//   }
-// })
+document.addEventListener('mousemove', event => {
+  if (pageYOffset > innerHeight * 4) {
+    contact.decor.first.style.transform = `translate(${
+      (event.clientX - innerHeight / 2) * .02
+    }px, ${
+      (event.clientY - innerHeight / 2) * .02
+    }px)`
+    contact.decor.second.style.transform = `translate(${
+      -(event.clientX - innerHeight / 2) * .02
+    }px, ${
+      -(event.clientY - innerHeight / 2) * .02
+    }px) rotate(180deg)`
+  }
+})
 
 }

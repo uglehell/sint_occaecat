@@ -1,7 +1,6 @@
 @import 'normalize.scss';
 @import 'fonts.scss';
 @import 'variables.scss';
-// @import 'swiper-bundle.scss';
 
 .loading {
   position: fixed;
@@ -450,7 +449,7 @@
     left: 5vw;
 
     &:not(.swiper-button--disabled):hover {
-      transform: translateX(-5px) translateY(-50%);
+      transform: translateX(-7px) translateY(-50%);
     }
   }
   .swiper-button-next {
@@ -460,7 +459,7 @@
     transform: translateY(-50%) rotate(180deg);
 
     &:not(.swiper-button--disabled):hover {
-      transform: translateX(5px) translateY(-50%) rotate(180deg);
+      transform: translateX(7px) translateY(-50%) rotate(180deg);
     }
   }
 }
@@ -514,6 +513,14 @@
     position: absolute;
     background: url('../images/contact/message-bg.svg') no-repeat center;
     background-size: 100% 100%;
+    width: 226px;
+    height: 298px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 40%;
     
     &-title {
       color: $dark-grey-color;
@@ -523,17 +530,23 @@
       color: $half-grey-color;
       font-size: 15px;
       letter-spacing: .05em;
+      max-width: 165px;
+      margin-top: 21px;
+    }
+    &-inner {
+      transform: translateY(-9%);
     }
   }
   &__links {
     position: absolute;
     box-sizing: border-box;
-    top: 67%;
+    top: 69%;
     left: 60%;
     padding: 29px 19px 48px;
     background: rgba(236, 236, 236, .95);
     border: $half-grey-color solid .5px;
     transform: translate(-50%, -50%);
+    z-index: 1;
 
     &-title {
       font-family: Anton;
@@ -552,27 +565,38 @@
       margin-top: 22px;
     }
   }
-  &__email-title {
+  &__email-title, &__telegram-title {
     color: #575757;
     font-size: 14px;
   }
-  &__email-text {
+  &__email-text, &__telegram-text {
     font-weight: 700;
     letter-spacing: .05em;
     font-size: 15px;
-    margin-left: 10px;
+    margin-left: 19px;
     transform: translateY(-1px);
+    color: #383838;
+    transition: .1s;
+
+    &:hover {
+      color: #111111;
+    }
   }
-  &__telegram-title {
-    color: #575757;
-    font-size: 14px;
-  }
-  &__telegram-text {
-    font-weight: 700;
-    letter-spacing: .05em;
-    font-size: 15px;
-    margin-left: 10px;
-    transform: translateY(-1px);
+  &__decor {
+    background: url('../images/contact/decoration.svg') no-repeat center;
+    background-size: 100% 100%;
+    width: 165px;
+    height: 72px;
+    position: absolute;
+
+    &-2 {
+      display: none;
+      transform: rotate(180deg);
+    }
+    &-1 {
+      bottom: calc(31vh - 127px);
+      left: calc(60vw - 136px);
+    }
   }
 }
 
