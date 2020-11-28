@@ -22,5 +22,7 @@ characteristics:
   * Adaptive
   * Cross Browser
   * BEM
+  * Optimized
+  * Accessible
   * Semantics
   * CSS animations (transition, keyframes)

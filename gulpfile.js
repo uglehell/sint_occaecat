@@ -71,7 +71,7 @@ const buildFunctions = {
   },
   scripts: done => {
     del(path.dist.scripts)
-    gulp.src(path.src.scripts)
+    gulp.src(['src/scripts/swiper-bundle.js', 'src/scripts/main.js'])
     .pipe(plumber({
       errorHandler: error => {
         notify.onError({
