@@ -771,7 +771,6 @@ window.addEventListener('scroll', () => {
       risquis.decor.second.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .5}px)`
     } else {
       risquis.decor.first.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .15}px)`
-      risquis.content.style.transform     = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight) * .1}px)`
     }
   }
   if (pageYOffset > innerHeight * 3) {
@@ -783,17 +782,7 @@ window.addEventListener('scroll', () => {
       nostrud.decor.second.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .2}px)`
     } else {
       nostrud.decor.first.style.transform  = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .15}px)`
-      nostrud.content.style.transform     = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 4) * .1}px)`
     }
-  }
-
-  // gallery parallax
-  if (pageYOffset > innerHeight && pageYOffset < innerHeight * 3) {
-    gallery.slidesContent.forEach(galleryInfo => {
-      if (innerWidth < innerHeight) {
-        galleryInfo.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 2) * .2}px)`
-      }
-    })
   }
 
   // contact parallax
