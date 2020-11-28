@@ -1,19 +1,19 @@
 "use strict"
 
-const gulp              = require('gulp')
-const sass              = require('gulp-sass')
-const pug               = require('gulp-pug')
-const babel             = require('gulp-babel')
-const plumber           = require('gulp-plumber')
-const imagemin          = require('gulp-imagemin')
-const concat            = require('gulp-concat')
-const autoprefixer      = require('gulp-autoprefixer')
-const uglify            = require('gulp-uglify-es').default
-const notify            = require('gulp-notify')
-const browserSync       = require('browser-sync')
-const newer             = require('gulp-newer')
-const del               = require('del')
-const removeCssComments = require('gulp-strip-css-comments')
+import gulp              from 'gulp'
+import sass              from 'gulp-sass'
+import pug               from 'gulp-pug'
+import babel             from 'gulp-babel'
+import plumber           from 'gulp-plumber'
+import imagemin          from 'gulp-imagemin'
+import concat            from 'gulp-concat'
+import autoprefixer      from 'gulp-autoprefixer'
+import uglify            from 'gulp-uglify-es'
+import notify            from 'gulp-notify'
+import browserSync       from 'browser-sync'
+import newer             from 'gulp-newer'
+import del               from 'del'
+import removeCssComments from 'gulp-strip-css-comments'
 
 
 const path = {
@@ -60,11 +60,11 @@ const buildFunctions = {
             title: 'SCSS error',
             message: 'error <%= error.message %>'
           })(error)
-          this.emit('end')
         }
       }))
+      .pipe(sass({ outputStyle: 'compressed' }))
+      .pipe(removeCssComments())
       .pipe(autoprefixer({ cascade: true }))
-      .pipe(sass())
       .pipe(gulp.dest(path.dist.style))
   
     done()
@@ -78,14 +78,13 @@ const buildFunctions = {
           title: 'JAVASCRIPT error',
           message: 'error <%= error.message %>'
         })(error)
-        this.emit('end')
       }
     }))
     .pipe(concat('main.js'))
     .pipe(babel({
       presets: ['@babel/env']
     }))
-    .pipe(uglify())
+    .pipe(uglify.default())
     .pipe(gulp.dest(path.dist.scripts))
 
     done()
@@ -115,7 +114,7 @@ const buildFunctions = {
     done()
   },
   build: done => {
-    gulp.parallel(
+    gulp.series(
       buildFunctions.index,
       buildFunctions.style,
       buildFunctions.scripts,
@@ -129,7 +128,7 @@ const devFunction = {
   index: done => {
     gulp.src(path.src.index)
       .pipe(plumber())
-      .pipe(pug({ pretty: false }))
+      .pipe(pug({ pretty: true }))
       .pipe(gulp.dest(path.dist.index))
       .pipe(browserSync.reload({ stream: true }))
   
@@ -145,7 +144,7 @@ const devFunction = {
           })(error)
         }
       }))
-      .pipe(sass({ outputStyle: 'compressed' }))
+      .pipe(sass({ outputStyle: 'expanded' }))
       .pipe(removeCssComments())
       .pipe(autoprefixer({ cascade: true }))
       .pipe(gulp.dest(path.dist.style))
@@ -167,7 +166,7 @@ const devFunction = {
       // .pipe(babel({
       //   presets: ['@babel/env']
       // }))
-      .pipe(uglify())
+      .pipe(uglify.default())
       .pipe(gulp.dest(path.dist.scripts))
       .pipe(browserSync.reload({ stream: true }))
 
@@ -212,5 +211,9 @@ const devFunction = {
 }
 
 
-exports.default = devFunction.initialize
-exports.build   = buildFunctions.build // doesn't work
+export const index   = buildFunctions.index
+export const style   = buildFunctions.style
+export const scripts = buildFunctions.scripts
+
+export default devFunction.initialize
+export const build = buildFunctions.build

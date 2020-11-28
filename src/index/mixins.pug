@@ -50,16 +50,50 @@ mixin risquis
     .section__ticker.risquis__ticker
       p.section__ticker-text Aliquam nulla facilisi cras fermentum. Ornare aenean euismod elementum nisi.
 
+mixin gallery_swiper_slide(index, title, description, link)
+  .gallery__swiper-slide.swiper-slide(class="gallery__swiper-slide" + index)
+    .gallery__info
+      .gallery__info-wrapper
+        .gallery__info-title.section__content-title= title
+        .gallery__info-text= description
+        a.gallery__info-link(href= link, target="_blank", rel="noopener") original
+    .gallery__img(class="gallery__img-" + index)
+
 mixin gallery
   section.gallery#gallery
     h1.section__title.gallery__title.section__title--hidden gallery
     .gallery__swiper.swiper-container
       .swiper-wrapper
-        .gallery-swiper-slide.swiper-slide
-        .gallery-swiper-slide.swiper-slide
-        .gallery-swiper-slide.swiper-slide
-        .gallery-swiper-slide.swiper-slide
-        .gallery-swiper-slide.swiper-slide
+        +gallery_swiper_slide(
+          1,
+          'platea dictumst',
+          'Massa placerat duis ultricies lacus. Dignissim enim sit amet venenatis urna cursus. Feugiat pretium nibh ipsum consequat nisl.',
+          'https://www.pinterest.ru/pin/4644405853680097/?nic_v2=1aSmvlJ4R'
+        )
+        +gallery_swiper_slide(
+          2,
+          'morbi tincidunt',
+          'Tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius. Risus ultricies tristique nulla aliquet. Donec ac odio tempor orci.',
+          'https://www.pinterest.ru/pin/619315386233113940/?nic_v2=1aSmvlJ4R'
+        )
+        +gallery_swiper_slide(
+          3,
+          'Posuere lorem',
+          'Quam quisque id diam vel quam elementum pulvinar etiam. Suspendisse in est ante in. Nunc lobortis mattis.',
+          'https://www.pinterest.ru/pin/561050066073439535/?nic_v2=1aSmvlJ4R'
+        )
+        +gallery_swiper_slide(
+          4,
+          'Risus sed',
+          'Sed pulvinar proin gravida hendrerit. Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum',
+          'https://www.pinterest.ru/pin/578782989604488170/?nic_v2=1aSmvlJ4R'
+        )
+        +gallery_swiper_slide(
+          5,
+          'nibh venenatis',
+          'Ipsum consequat nisl vel pretium lectus quam id leo. Nulla pellentesque dignissim enim sit amet venenatis',
+          'https://www.pinterest.ru/pin/3166662219244246/?nic_v2=1aSmvlJ4R'
+        )
       .swiper-pagination.gallery__pagination
       .swiper-button-prev.swiper-button--disabled
         <svg width="49" height="101" viewBox="0 0 49 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.7739 50.5L49 3.88462L42.598 0L0 50.5L42.598 101L49 97.1154L14.7739 50.5Z" fill="#444"/></svg>
@@ -99,9 +133,9 @@ mixin contact
       .contact__links-title my links
       .contact__links-email
         .contact__email-title email:
-        a.contact__email-text(href="mailto:s.iom@mail.ru", target="_blank") s.iom@mail.ru
+        a.contact__email-text(href="mailto:s.iom@mail.ru", target="_blank", rel="noopener") s.iom@mail.ru
       .contact__links-telegram
         .contact__telegram-title telegram:
-        a.contact__telegram-text(href="https://t.me/uglehell", target="_blank") @uglehell
+        a.contact__telegram-text(href="https://t.me/uglehell", target="_blank", rel="noopener") @uglehell
     .contact__decor.contact__decor-1
     .contact__decor.contact__decor-2

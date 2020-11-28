@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   z-index: 10000;
-  transition: .5s;
+  transition: 1s;
 }
 
 .nav-button {
@@ -21,6 +21,7 @@
   cursor: pointer;
   transform-origin: right top;
   mix-blend-mode: difference;
+  user-select: none;
 
   &__container {
     position: relative;
@@ -264,6 +265,7 @@
       text-transform: uppercase;
       font-size: 16px;
       color: $dark-grey-color;
+      display: inline-block;
 
       &::before {
         content: '';
@@ -277,7 +279,7 @@
     &-text {
       font-size: 10px;
       color: $half-grey-color;
-      line-height: 1.6;
+      line-height: 1.5;
       width: 157px;
       margin-top: 20px;
     }
@@ -324,8 +326,8 @@
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: 1;
-    max-width: 90px;
-    max-height: 90px;
+    width: 10vh;
+    height: 10vh;
 
     &-1 {
       background: url('../images/content-bgs/content-decor-1.svg') no-repeat center;
@@ -402,6 +404,133 @@
   overflow: hidden;
   transition: .5s;
 
+  .section__content-title::before {
+    top: 118%;
+  }
+
+  &__info {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 208px;
+    height: 188px;
+    background: url('../images/gallery/info-bg.svg') no-repeat center;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    &-wrapper {
+      max-width: 159px;
+    }
+    &-text {
+      font-size: 10px;
+      line-height: 1.5;
+      margin: 11px 0 13px;
+      color: #444;
+    }
+    &-link {
+      width: 78px;
+      height: 28px;
+      display: block;
+      text-align: center;
+      box-sizing: border-box;
+      color: $white-text-color;
+      font-family: Anton;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: .2em;
+      padding-top: 9px;
+      transition: .5s;
+      background: url('../images/gallery/original-link-dark.svg') no-repeat center;
+      background-size: 100%;
+
+      &:hover {
+        color: #444;
+        background: url('../images/gallery/original-link-light.svg') no-repeat center;
+        background-size: 100%;
+      }
+    }
+  }
+  &__img {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: .5s;
+    &:hover {
+      background-size: auto 108%;
+    }
+
+    &-1 {
+      width: 224px;
+      height: 312px;
+      background: url('../images/gallery/gallery1.jpg') no-repeat center;
+      background-size: auto 100%;
+    }
+    &-2 {
+      width: 214px;
+      height: 283px;
+      background: url('../images/gallery/gallery2.jpg') no-repeat center;
+      background-size: auto 100%;
+    }
+    &-3 {
+      width: 215px;
+      height: 285px;
+      background: url('../images/gallery/gallery3.jpg') no-repeat center;
+      background-size: auto 100%;
+    }
+    &-4 {
+      width: 178px;
+      height: 311px;
+      background: url('../images/gallery/gallery4.jpg') no-repeat center;
+      background-size: auto 100%;
+    }
+    &-5 {
+      width: 198px;
+      height: 258px;
+      background: url('../images/gallery/gallery5.jpg') no-repeat center;
+      background-size: auto 100%;
+    }
+  }
+  &__swiper-slide:nth-child(1) &__info {
+    top: 61%;
+    left: 60%;
+  }
+  &__swiper-slide:nth-child(1) &__img {
+    top: 36%;
+    left: 38%;
+  }
+  &__swiper-slide:nth-child(2) &__info {
+    top: 61%;
+    left: 42%;
+  }
+  &__swiper-slide:nth-child(2) &__img {
+    top: 36%;
+    left: 59%;
+  }
+  &__swiper-slide:nth-child(3) &__info {
+    top: 60%;
+    left: 60%;
+  }
+  &__swiper-slide:nth-child(3) &__img {
+    top: 34%;
+    left: 44%;
+  }
+  &__swiper-slide:nth-child(4) &__info {
+    top: 59%;
+    left: 44%;
+  }
+  &__swiper-slide:nth-child(4) &__img {
+    top: 36%;
+    left: 62%;
+  }
+  &__swiper-slide:nth-child(5) &__info {
+    top: 62%;
+    left: 42%;
+  }
+  &__swiper-slide:nth-child(5) &__img {
+    top: 35%;
+    left: 62%;
+  }
   .swiper-slide {
     height: 100vh;
   }
@@ -496,10 +625,10 @@
       top: 34%;
       left: 58%;
     }
-    &__decor-1 {
-      left: 5px;
-      top: 95%;
-    }
+  }
+  &__decor-1 {
+    left: 5px;
+    top: 95%;
   }
 }
 

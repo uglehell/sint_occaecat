@@ -2,12 +2,11 @@
 // reload on resize
 
 const windowSize = {
-  width: innerWidth,
-  height: innerHeight
+  width: innerWidth
 }
 
 window.addEventListener('resize', () => {
-  // if (innerWidth != windowSize.width || innerHeight < windowSize.height) location.reload()
+  if (innerWidth != windowSize.width) location.reload()
 })
 
 // remove loading
@@ -15,8 +14,10 @@ window.addEventListener('resize', () => {
 const loading = document.querySelector('.loading')
 
 document.addEventListener('DOMContentLoaded', () => {
-  loading.style.opacity = '0'
-  setTimeout(() => loading.remove(), 500)
+  setTimeout( () => {
+    loading.style.opacity = '0'
+    setTimeout(() => loading.remove(), 1000)
+  }, 500)
 })
 
 // global
@@ -150,12 +151,12 @@ const initHomeBg = () => {
     }
   } else if (innerHeight < 600) {
     if (innerWidth < 460) {
-      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .2 - 40, home.canvas.height * .14, .1, 100, 100))
-      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .2 + 20 - 40, home.canvas.height * .14 + 100, .6, 60, 60))
-      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .2 - 40, home.canvas.height * .72, .3, 80, 80))
+      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .2 - 40, home.canvas.height * .14, .2, 100, 100))
+      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .2 + 20 - 40, home.canvas.height * .14 + 100, .3, 60, 60))
+      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .2 - 40, home.canvas.height * .72, .2, 80, 80))
       home.particles.push(new HomeParticle('images/bg-particles/9.svg', home.canvas.width * .7 - 40, home.canvas.height * .27, .4, 120, 120))
-      home.particles.push(new HomeParticle('images/bg-particles/10.svg', home.canvas.width * .3, home.canvas.height * .5, .5, 90, 90))
-      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .59 - 40, home.canvas.height * .63, .2))
+      home.particles.push(new HomeParticle('images/bg-particles/10.svg', home.canvas.width * .3, home.canvas.height * .5, .2, 90, 90))
+      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .59 - 40, home.canvas.height * .63, .1))
     } else if (innerWidth < 700) {
       home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .17 - 40, home.canvas.height * .19, .2, 100, 100))
       home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .17 + 20 - 40, home.canvas.height * .19 + 110, .6, 60, 60))
@@ -188,12 +189,12 @@ const initHomeBg = () => {
     }
   } else if (innerHeight < 750) {
     if (innerWidth < 460) {
-      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .2 - 40, home.canvas.height * .14, .1, 100, 100))
-      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .2 + 20 - 40, home.canvas.height * .14 + 100, .6, 60, 60))
-      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .2 - 40, home.canvas.height * .72, .3, 80, 80))
+      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .2 - 40, home.canvas.height * .14, .2, 100, 100))
+      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .2 + 20 - 40, home.canvas.height * .14 + 100, .3, 60, 60))
+      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .2 - 40, home.canvas.height * .72, .2, 80, 80))
       home.particles.push(new HomeParticle('images/bg-particles/9.svg', home.canvas.width * .7 - 40, home.canvas.height * .27, .4, 120, 120))
-      home.particles.push(new HomeParticle('images/bg-particles/10.svg', home.canvas.width * .3, home.canvas.height * .5, .5, 90, 90))
-      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .59 - 40, home.canvas.height * .63, .2))
+      home.particles.push(new HomeParticle('images/bg-particles/10.svg', home.canvas.width * .3, home.canvas.height * .5, .2, 90, 90))
+      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .59 - 40, home.canvas.height * .63, .1))
     } else if (innerWidth < 700) {
       home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .17 - 30, home.canvas.height * .19, .2, 100, 100))
       home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .17 + 20 - 30, home.canvas.height * .19 + 100, .6, 80, 80))
@@ -230,12 +231,12 @@ const initHomeBg = () => {
     }
   } else if (innerHeight < 900) {
     if (innerWidth < 460) {
-      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .17 - 40, home.canvas.height * .19, .1))
-      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .17 + 20 - 40, home.canvas.height * .19 + 140, .6))
-      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .14 - 40, home.canvas.height * .72, .3))
+      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .17 - 40, home.canvas.height * .19, .2))
+      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .17 + 20 - 40, home.canvas.height * .19 + 140, .3))
+      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .14 - 40, home.canvas.height * .72, .2))
       home.particles.push(new HomeParticle('images/bg-particles/9.svg', home.canvas.width * .7 - 40, home.canvas.height * .27, .4))
-      home.particles.push(new HomeParticle('images/bg-particles/10.svg', home.canvas.width * .23, home.canvas.height * .5, .5))
-      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .59 - 40, home.canvas.height * .63, .2))
+      home.particles.push(new HomeParticle('images/bg-particles/10.svg', home.canvas.width * .23, home.canvas.height * .5, .2))
+      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .59 - 40, home.canvas.height * .63, .1))
     } else if (innerWidth < 615) {
       home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .17 - 40, home.canvas.height * .19, .2))
       home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .17 + 20 - 40, home.canvas.height * .19 + 140, .6))
@@ -307,18 +308,30 @@ const initHomeBg = () => {
       home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .6 - 40, home.canvas.height * .73, .6))
       home.particles.push(new HomeParticle('images/bg-particles/12.svg', home.canvas.width * .76 + 85 - 40, home.canvas.height * .15 + 140, .1))
       home.particles.push(new HomeParticle('images/bg-particles/14.svg', home.canvas.width * .6 - 110 - 40, home.canvas.height * .73 + 80, .4))
-    } else {
-      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .19 - 40, home.canvas.height * .4, .2, 200, 200))
-      home.particles.push(new HomeParticle('images/bg-particles/2.svg', home.canvas.width * .42 - 40, home.canvas.height * .22, .3, 200, 200))
-      home.particles.push(new HomeParticle('images/bg-particles/4.svg', home.canvas.width * .42 + 74 - 40, home.canvas.height * .22 + 190, .5, 100, 100))
-      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .19 + 20 - 40, home.canvas.height * .4 + 170, .6, 150, 150))
-      home.particles.push(new HomeParticle('images/bg-particles/6.svg', home.canvas.width * .12 - 40, home.canvas.height * .1, .1, 200, 200))
-      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .14 - 40, home.canvas.height * .72, .2, 150, 150))
+    } else if (innerWidth < 900) {
+      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .19 - 40, home.canvas.height * .4, .2, 150, 150))
+      home.particles.push(new HomeParticle('images/bg-particles/2.svg', home.canvas.width * .42 - 40, home.canvas.height * .22, .3, 150, 150))
+      home.particles.push(new HomeParticle('images/bg-particles/4.svg', home.canvas.width * .42 + 74 - 40, home.canvas.height * .22 + 190, .5, 80, 80))
+      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .19 + 20 - 40, home.canvas.height * .4 + 140, .6, 150, 120))
+      home.particles.push(new HomeParticle('images/bg-particles/6.svg', home.canvas.width * .12 - 40, home.canvas.height * .1, .1, 150, 150))
+      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .14 - 40, home.canvas.height * .72, .2, 120, 120))
       home.particles.push(new HomeParticle('images/bg-particles/8.svg', home.canvas.width * .66 - 40, home.canvas.height * .5, .3))
-      home.particles.push(new HomeParticle('images/bg-particles/9.svg', home.canvas.width * .73 - 40, home.canvas.height * .15, .4, 190, 190))
-      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .6 - 40, home.canvas.height * .67, .6, 300, 300))
+      home.particles.push(new HomeParticle('images/bg-particles/9.svg', home.canvas.width * .73 - 40, home.canvas.height * .15, .4, 150, 150))
+      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .6 - 40, home.canvas.height * .67, .6, 220, 220))
       home.particles.push(new HomeParticle('images/bg-particles/12.svg', home.canvas.width * .76 + 85 - 40, home.canvas.height * .15 + 190, .1))
-      home.particles.push(new HomeParticle('images/bg-particles/14.svg', home.canvas.width * .6 - 110 - 40, home.canvas.height * .73 + 80, .4, 150, 150))
+      home.particles.push(new HomeParticle('images/bg-particles/14.svg', home.canvas.width * .6 - 110 - 40, home.canvas.height * .73 + 80, .4, 120, 120))
+    } else {
+      home.particles.push(new HomeParticle('images/bg-particles/1.svg', home.canvas.width * .19 - 40, home.canvas.height * .4, .2, 180, 180))
+      home.particles.push(new HomeParticle('images/bg-particles/2.svg', home.canvas.width * .42 - 40, home.canvas.height * .22, .3, 180, 180))
+      home.particles.push(new HomeParticle('images/bg-particles/4.svg', home.canvas.width * .42 + 74 - 40, home.canvas.height * .22 + 190, .5, 90, 90))
+      home.particles.push(new HomeParticle('images/bg-particles/5.svg', home.canvas.width * .19 + 20 - 40, home.canvas.height * .4 + 170, .6, 140, 140))
+      home.particles.push(new HomeParticle('images/bg-particles/6.svg', home.canvas.width * .12 - 40, home.canvas.height * .1, .1, 180, 180))
+      home.particles.push(new HomeParticle('images/bg-particles/7.svg', home.canvas.width * .14 - 40, home.canvas.height * .72, .2, 140, 140))
+      home.particles.push(new HomeParticle('images/bg-particles/8.svg', home.canvas.width * .66 - 40, home.canvas.height * .5, .3))
+      home.particles.push(new HomeParticle('images/bg-particles/9.svg', home.canvas.width * .73 - 40, home.canvas.height * .15, .4, 180, 180))
+      home.particles.push(new HomeParticle('images/bg-particles/11.svg', home.canvas.width * .6 - 40, home.canvas.height * .67, .6, 280, 280))
+      home.particles.push(new HomeParticle('images/bg-particles/12.svg', home.canvas.width * .76 + 85 - 40, home.canvas.height * .15 + 190, .1))
+      home.particles.push(new HomeParticle('images/bg-particles/14.svg', home.canvas.width * .6 - 110 - 40, home.canvas.height * .73 + 80, .4, 140, 140))
     }
   }
 }
@@ -352,8 +365,8 @@ const risquis = {
 }
 
 if (innerWidth < innerHeight) {
-  risquis.decor.first.style.width = risquis.decor.first.style.height = viewPortDiagonal * .1 + 'px'
   risquis.illustration.container.style.width = risquis.illustration.container.style.height = viewPortDiagonal * .28 + 'px'
+
 } else {
   risquis.decor.first.style.width = risquis.decor.first.style.height = viewPortDiagonal * .06 + 'px'
   risquis.decor.second.style.width = risquis.decor.second.style.height = viewPortDiagonal * .07 + 'px'
@@ -366,7 +379,8 @@ const gallery = {
   title: document.querySelector('.gallery__title'),
   section: document.querySelector('.gallery'),
   prevButton: document.querySelector('.gallery .swiper-button-prev'),
-  nextButton: document.querySelector('.gallery .swiper-button-next')
+  nextButton: document.querySelector('.gallery .swiper-button-next'),
+  slidesContent: document.querySelectorAll('.gallery__info')
 }
 
 if (innerWidth < innerHeight) {
@@ -488,12 +502,12 @@ const initEmptyCanvas = () => {
     }
   } else if (innerHeight < 600) {
     if (innerWidth < 460) {
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .2 - 40, empty.canvas.height * .14, .1, 100, 100))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .2 + 20 - 40, empty.canvas.height * .14 + 100, .6, 60, 60))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .2 - 40, empty.canvas.height * .72, .3, 80, 80))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .2 - 40, empty.canvas.height * .14, .2, 100, 100))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .2 + 20 - 40, empty.canvas.height * .14 + 100, .3, 60, 60))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .2 - 40, empty.canvas.height * .72, .2, 80, 80))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/9.svg', empty.canvas.width * .7 - 40, empty.canvas.height * .27, .4, 120, 120))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/10.svg', empty.canvas.width * .3, empty.canvas.height * .5, .5, 90, 90))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .59 - 40, empty.canvas.height * .63, .2))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/10.svg', empty.canvas.width * .3, empty.canvas.height * .5, .2, 90, 90))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .59 - 40, empty.canvas.height * .63, .1))
     } else if (innerWidth < 700) {
       empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .17 - 40, empty.canvas.height * .19, .2, 100, 100))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .17 + 20 - 40, empty.canvas.height * .19 + 110, .6, 60, 60))
@@ -526,12 +540,12 @@ const initEmptyCanvas = () => {
     }
   } else if (innerHeight < 750) {
     if (innerWidth < 460) {
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .2 - 40, empty.canvas.height * .14, .1, 100, 100))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .2 + 20 - 40, empty.canvas.height * .14 + 100, .6, 60, 60))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .2 - 40, empty.canvas.height * .72, .3, 80, 80))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .2 - 40, empty.canvas.height * .14, .2, 100, 100))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .2 + 20 - 40, empty.canvas.height * .14 + 100, .3, 60, 60))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .2 - 40, empty.canvas.height * .72, .2, 80, 80))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/9.svg', empty.canvas.width * .7 - 40, empty.canvas.height * .27, .4, 120, 120))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/10.svg', empty.canvas.width * .3, empty.canvas.height * .5, .5, 90, 90))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .59 - 40, empty.canvas.height * .63, .2))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/10.svg', empty.canvas.width * .3, empty.canvas.height * .5, .2, 90, 90))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .59 - 40, empty.canvas.height * .63, .1))
     } else if (innerWidth < 700) {
       empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .17 - 30, empty.canvas.height * .19, .2, 100, 100))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .17 + 20 - 30, empty.canvas.height * .19 + 100, .6, 80, 80))
@@ -568,12 +582,12 @@ const initEmptyCanvas = () => {
     }
   } else if (innerHeight < 900) {
     if (innerWidth < 460) {
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .17 - 40, empty.canvas.height * .19, .1))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .17 + 20 - 40, empty.canvas.height * .19 + 140, .6))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .14 - 40, empty.canvas.height * .72, .3))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .17 - 40, empty.canvas.height * .19, .2))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .17 + 20 - 40, empty.canvas.height * .19 + 140, .3))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .14 - 40, empty.canvas.height * .72, .2))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/9.svg', empty.canvas.width * .7 - 40, empty.canvas.height * .27, .4))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/10.svg', empty.canvas.width * .23, empty.canvas.height * .5, .5))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .59 - 40, empty.canvas.height * .63, .2))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/10.svg', empty.canvas.width * .23, empty.canvas.height * .5, .2))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .59 - 40, empty.canvas.height * .63, .1))
     } else if (innerWidth < 615) {
       empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .17 - 40, empty.canvas.height * .19, .2))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .17 + 20 - 40, empty.canvas.height * .19 + 140, .6))
@@ -645,18 +659,30 @@ const initEmptyCanvas = () => {
       empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .6 - 40, empty.canvas.height * .73, .6))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/12.svg', empty.canvas.width * .76 + 85 - 40, empty.canvas.height * .15 + 140, .1))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/14.svg', empty.canvas.width * .6 - 110 - 40, empty.canvas.height * .73 + 80, .4))
-    } else {
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .19 - 40, empty.canvas.height * .4, .2, 200, 200))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/2.svg', empty.canvas.width * .42 - 40, empty.canvas.height * .22, .3, 200, 200))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/4.svg', empty.canvas.width * .42 + 74 - 40, empty.canvas.height * .22 + 190, .5, 100, 100))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .19 + 20 - 40, empty.canvas.height * .4 + 170, .6, 150, 150))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/6.svg', empty.canvas.width * .12 - 40, empty.canvas.height * .1, .1, 200, 200))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .14 - 40, empty.canvas.height * .72, .2, 150, 150))
+    } else if (innerWidth < 900) {
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .19 - 40, empty.canvas.height * .4, .2, 150, 150))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/2.svg', empty.canvas.width * .42 - 40, empty.canvas.height * .22, .3, 150, 150))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/4.svg', empty.canvas.width * .42 + 74 - 40, empty.canvas.height * .22 + 190, .5, 80, 80))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .19 + 20 - 40, empty.canvas.height * .4 + 140, .6, 150, 120))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/6.svg', empty.canvas.width * .12 - 40, empty.canvas.height * .1, .1, 150, 150))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .14 - 40, empty.canvas.height * .72, .2, 120, 120))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/8.svg', empty.canvas.width * .66 - 40, empty.canvas.height * .5, .3))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/9.svg', empty.canvas.width * .73 - 40, empty.canvas.height * .15, .4, 190, 190))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .6 - 40, empty.canvas.height * .67, .6, 300, 300))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/9.svg', empty.canvas.width * .73 - 40, empty.canvas.height * .15, .4, 150, 150))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .6 - 40, empty.canvas.height * .67, .6, 220, 220))
       empty.particles.push(new EmptySectionParticle('images/bg-particles/12.svg', empty.canvas.width * .76 + 85 - 40, empty.canvas.height * .15 + 190, .1))
-      empty.particles.push(new EmptySectionParticle('images/bg-particles/14.svg', empty.canvas.width * .6 - 110 - 40, empty.canvas.height * .73 + 80, .4, 150, 150))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/14.svg', empty.canvas.width * .6 - 110 - 40, empty.canvas.height * .73 + 80, .4, 120, 120))
+    } else {
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/1.svg', empty.canvas.width * .19 - 40, empty.canvas.height * .4, .2, 180, 180))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/2.svg', empty.canvas.width * .42 - 40, empty.canvas.height * .22, .3, 180, 180))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/4.svg', empty.canvas.width * .42 + 74 - 40, empty.canvas.height * .22 + 190, .5, 90, 90))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/5.svg', empty.canvas.width * .19 + 20 - 40, empty.canvas.height * .4 + 170, .6, 140, 140))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/6.svg', empty.canvas.width * .12 - 40, empty.canvas.height * .1, .1, 180, 180))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/7.svg', empty.canvas.width * .14 - 40, empty.canvas.height * .72, .2, 140, 140))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/8.svg', empty.canvas.width * .66 - 40, empty.canvas.height * .5, .3))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/9.svg', empty.canvas.width * .73 - 40, empty.canvas.height * .15, .4, 180, 180))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/11.svg', empty.canvas.width * .6 - 40, empty.canvas.height * .67, .6, 280, 280))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/12.svg', empty.canvas.width * .76 + 85 - 40, empty.canvas.height * .15 + 190, .1))
+      empty.particles.push(new EmptySectionParticle('images/bg-particles/14.svg', empty.canvas.width * .6 - 110 - 40, empty.canvas.height * .73 + 80, .4, 140, 140))
     }
   }
 }
@@ -681,7 +707,6 @@ const nostrud = {
 }
 
 if (innerWidth < innerHeight) {
-  nostrud.decor.first.style.width = nostrud.decor.first.style.height = viewPortDiagonal * .1 + 'px'
   nostrud.illustration.container.style.width = nostrud.illustration.container.style.height = viewPortDiagonal * .28 + 'px'
 } else {
   nostrud.decor.first.style.width = nostrud.decor.first.style.height = viewPortDiagonal * .075 + 'px'
@@ -741,28 +766,42 @@ window.addEventListener('scroll', () => {
     risquis.illustration.third.style.transform  = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight) * .3}px)`
     risquis.illustration.second.style.transform = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight) * .15}px)`
     
-    if (PCVersion) {
-      risquis.decor.first.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .2}px)`
+    if (innerWidth > innerHeight) {
+      risquis.decor.first.style.transform  = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .2}px)`
       risquis.decor.second.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .5}px)`
     } else {
       risquis.decor.first.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .15}px)`
+      risquis.content.style.transform     = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight) * .1}px)`
     }
   }
   if (pageYOffset > innerHeight * 3) {
     nostrud.illustration.third.style.transform  = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 4) * .3}px)`
     nostrud.illustration.second.style.transform = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 4) * .15}px)`
 
-    if (PCVersion) {
+    if (innerWidth > innerHeight) {
       nostrud.decor.first.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .5}px)`
       nostrud.decor.second.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .2}px)`
     } else {
-      nostrud.decor.first.style.transform  = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .2}px)`
+      nostrud.decor.first.style.transform  = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .15}px)`
+      nostrud.content.style.transform     = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 4) * .1}px)`
     }
   }
 
-  // contact parallax on mobile version
+  // gallery parallax
+  if (pageYOffset > innerHeight && pageYOffset < innerHeight * 3) {
+    gallery.slidesContent.forEach(galleryInfo => {
+      if (innerWidth < innerHeight) {
+        galleryInfo.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 2) * .2}px)`
+      }
+    })
+  }
+
+  // contact parallax
   if (pageYOffset > innerHeight * 4) {
-    contact.links.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 5) * .5}px)`
+    contact.links.style.transform   = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 5) * .5}px)`
+    if (!PCVersion) {
+      contact.message.style.transform = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 5) * .1}px)`
+    }
   }
 })
 
