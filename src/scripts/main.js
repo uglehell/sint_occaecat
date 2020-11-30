@@ -705,11 +705,11 @@ const nostrud = {
 if (innerWidth < innerHeight) {
   nostrud.illustration.container.style.width = nostrud.illustration.container.style.height = viewPortDiagonal * .28 + 'px'
 } else {
-  nostrud.decor.first.style.width = nostrud.decor.first.style.height = viewPortDiagonal * .075 + 'px'
+  nostrud.decor.first.style.width = nostrud.decor.first.style.height = viewPortDiagonal * .08 + 'px'
   if (nostrud.decor.first.clientWidth == 90) {
-    nostrud.decor.second.style.width = nostrud.decor.second.style.height = 73 + 'px'
+    nostrud.decor.second.style.width = nostrud.decor.second.style.height = 83 + 'px'
   } else {
-    nostrud.decor.second.style.width = nostrud.decor.second.style.height = viewPortDiagonal * .06 + 'px'
+    nostrud.decor.second.style.width = nostrud.decor.second.style.height = viewPortDiagonal * .07 + 'px'
   }
   nostrud.illustration.container.style.width = nostrud.illustration.container.style.height = viewPortDiagonal * .28 + 'px'
 }
