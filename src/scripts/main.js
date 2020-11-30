@@ -476,10 +476,6 @@ const reDrawEmpty = () => {
     empty.particles[particleIndex].logic()
     empty.particles[particleIndex].draw()
   }
-  // empty.particles.forEach(particle => {
-  //   particle.logic()
-  //   particle.draw()
-  // })
 }
 
 const initEmptyCanvas = () => {
@@ -730,108 +726,138 @@ const contact = {
   }
 }
 
-// scroll effects
-
-window.addEventListener('scroll', () => {
-
-  // canvas redraw
-  if (pageYOffset < innerHeight) {
-    reDrawHomeBg()
-  }
-  if (pageYOffset > innerHeight * 2 && pageYOffset < innerHeight * 4) {
-    reDrawEmpty()
-  }
-  
-  // titles fade effects
-  if (pageYOffset > innerHeight * .5 && pageYOffset < innerHeight * 1.5) {
-    risquis.title.classList.remove('section__title--hidden')
-  } else {
-    risquis.title.classList.add('section__title--hidden')
-  } if (pageYOffset > innerHeight * 1.5 && pageYOffset < innerHeight * 2.5) {
-    gallery.title.classList.remove('section__title--hidden')
-  } else {
-    gallery.title.classList.add('section__title--hidden')
-  } if (pageYOffset > innerHeight * 3.5 && pageYOffset < innerHeight * 4.5) {
-    nostrud.title.classList.remove('section__title--hidden')
-  } else {
-    nostrud.title.classList.add('section__title--hidden')
-  } if (pageYOffset > innerHeight * 4.5) {
-    contact.title.classList.remove('section__title--hidden')
-  } else {
-    contact.title.classList.add('section__title--hidden')
-  }
-
-  // illustrations parallax
-  if (pageYOffset < innerHeight * 2) {
-    risquis.illustration.third.style.transform  = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight) * .3}px)`
-    risquis.illustration.second.style.transform = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight) * .15}px)`
-    
-    if (innerWidth > innerHeight) {
-      risquis.decor.first.style.transform  = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .2}px)`
-      risquis.decor.second.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .5}px)`
-    } else {
-      risquis.decor.first.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .15}px)`
-    }
-  }
-  if (pageYOffset > innerHeight * 3) {
-    nostrud.illustration.third.style.transform  = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 4) * .3}px)`
-    nostrud.illustration.second.style.transform = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 4) * .15}px)`
-
-    if (innerWidth > innerHeight) {
-      nostrud.decor.first.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .5}px)`
-      nostrud.decor.second.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .2}px)`
-    } else {
-      nostrud.decor.first.style.transform  = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .15}px)`
-    }
-  }
-
-  // contact parallax
-  if (pageYOffset > innerHeight * 4) {
-    contact.links.style.transform   = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 5) * .5}px)`
-    if (!PCVersion) {
-      contact.message.style.transform = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 5) * .1}px)`
-    }
-  }
-})
-
 if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
 
-// title changing
+  // title changing
 
-const pageTitle = {
-  title: 'Sint Occaecat',
-  titleIndex: 13,
-  isToReduce: false
-}
-
-let titleTimeout = setTimeout(function titleCallback() {
-  if (pageTitle.titleIndex >= pageTitle.title.length || pageTitle.titleIndex <= 1) pageTitle.isToReduce = !pageTitle.isToReduce
-
-  if (pageTitle.isToReduce) pageTitle.titleIndex--
-  else pageTitle.titleIndex++
-  
-  document.title = pageTitle.title.slice(0, pageTitle.titleIndex)
-
-  titleTimeout = setTimeout(titleCallback, 1000)
-}, 1000)
-
-PCVersion = true
-
-// contact parallax
-
-document.addEventListener('mousemove', event => {
-  if (pageYOffset > innerHeight * 4) {
-    contact.decor.first.style.transform = `translate(${
-      (event.clientX - innerHeight / 2) * .02
-    }px, ${
-      (event.clientY - innerHeight / 2) * .02
-    }px)`
-    contact.decor.second.style.transform = `translate(${
-      -(event.clientX - innerHeight / 2) * .02
-    }px, ${
-      -(event.clientY - innerHeight / 2) * .02
-    }px) rotate(180deg)`
+  const pageTitle = {
+    title: 'Sint Occaecat',
+    titleIndex: 13,
+    isToReduce: false
   }
-})
 
+  let titleTimeout = setTimeout(function titleCallback() {
+    if (pageTitle.titleIndex >= pageTitle.title.length || pageTitle.titleIndex <= 1) pageTitle.isToReduce = !pageTitle.isToReduce
+
+    if (pageTitle.isToReduce) pageTitle.titleIndex--
+    else pageTitle.titleIndex++
+
+    document.title = pageTitle.title.slice(0, pageTitle.titleIndex)
+
+    titleTimeout = setTimeout(titleCallback, 1000)
+  }, 1000)
+
+  PCVersion = true
+
+  // contact parallax
+
+  document.addEventListener('mousemove', event => {
+    if (pageYOffset > innerHeight * 4) {
+      contact.decor.first.style.transform = `translate(${
+        (event.clientX - innerHeight / 2) * .02
+      }px, ${
+        (event.clientY - innerHeight / 2) * .02
+      }px)`
+      contact.decor.second.style.transform = `translate(${
+        -(event.clientX - innerHeight / 2) * .02
+      }px, ${
+        -(event.clientY - innerHeight / 2) * .02
+      }px) rotate(180deg)`
+    }
+  })
+
+  // scroll effects
+  
+  window.addEventListener('scroll', () => {
+  
+    // canvas redraw
+    if (pageYOffset < innerHeight) {
+      reDrawHomeBg()
+    }
+    if (pageYOffset > innerHeight * 2 && pageYOffset < innerHeight * 4) {
+      reDrawEmpty()
+    }
+    
+    // titles fade effects
+    if (pageYOffset > innerHeight * .5 && pageYOffset < innerHeight * 1.5) {
+      risquis.title.classList.remove('section__title--hidden')
+    } else {
+      risquis.title.classList.add('section__title--hidden')
+    } if (pageYOffset > innerHeight * 1.5 && pageYOffset < innerHeight * 2.5) {
+      gallery.title.classList.remove('section__title--hidden')
+    } else {
+      gallery.title.classList.add('section__title--hidden')
+    } if (pageYOffset > innerHeight * 3.5 && pageYOffset < innerHeight * 4.5) {
+      nostrud.title.classList.remove('section__title--hidden')
+    } else {
+      nostrud.title.classList.add('section__title--hidden')
+    } if (pageYOffset > innerHeight * 4.5) {
+      contact.title.classList.remove('section__title--hidden')
+    } else {
+      contact.title.classList.add('section__title--hidden')
+    }
+  
+    // illustrations parallax
+    if (pageYOffset < innerHeight * 2) {
+      risquis.illustration.third.style.transform  = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight) * .3}px)`
+      risquis.illustration.second.style.transform = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight) * .15}px)`
+      
+      if (innerWidth > innerHeight) {
+        risquis.decor.first.style.transform  = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .2}px)`
+        risquis.decor.second.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .5}px)`
+      } else {
+        risquis.decor.first.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight) * .15}px)`
+      }
+    }
+    if (pageYOffset > innerHeight * 3) {
+      nostrud.illustration.third.style.transform  = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 4) * .3}px)`
+      nostrud.illustration.second.style.transform = `translate(-50%, -50%) translateY(${(pageYOffset - innerHeight * 4) * .15}px)`
+  
+      if (innerWidth > innerHeight) {
+        nostrud.decor.first.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .5}px)`
+        nostrud.decor.second.style.transform = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .2}px)`
+      } else {
+        nostrud.decor.first.style.transform  = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 4) * .15}px)`
+      }
+    }
+  
+    // contact parallax
+    if (pageYOffset > innerHeight * 4) {
+      contact.links.style.transform   = `translate(-50%, -50%) translateY(${-(pageYOffset - innerHeight * 5) * .5}px)`
+    }
+  })
+
+} else {
+
+  // scroll effects
+  
+  window.addEventListener('scroll', () => {
+  
+    // canvas redraw
+    if (pageYOffset < innerHeight) {
+      reDrawHomeBg()
+    }
+    if (pageYOffset > innerHeight * 2 && pageYOffset < innerHeight * 4) {
+      reDrawEmpty()
+    }
+    
+    // titles fade effects
+    if (pageYOffset > innerHeight * .5 && pageYOffset < innerHeight * 1.5) {
+      risquis.title.classList.remove('section__title--hidden')
+    } else {
+      risquis.title.classList.add('section__title--hidden')
+    } if (pageYOffset > innerHeight * 1.5 && pageYOffset < innerHeight * 2.5) {
+      gallery.title.classList.remove('section__title--hidden')
+    } else {
+      gallery.title.classList.add('section__title--hidden')
+    } if (pageYOffset > innerHeight * 3.5 && pageYOffset < innerHeight * 4.5) {
+      nostrud.title.classList.remove('section__title--hidden')
+    } else {
+      nostrud.title.classList.add('section__title--hidden')
+    } if (pageYOffset > innerHeight * 4.5) {
+      contact.title.classList.remove('section__title--hidden')
+    } else {
+      contact.title.classList.add('section__title--hidden')
+    }
+  })
 }

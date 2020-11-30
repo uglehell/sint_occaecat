@@ -328,6 +328,8 @@
     z-index: 1;
     width: 10vh;
     height: 10vh;
+    max-width: 12vh;
+    max-height: 12vh;
 
     &-1 {
       background: url('../images/content-bgs/content-decor-1.svg') no-repeat center;
@@ -353,6 +355,7 @@
       top: 50%;
       transform: translate(23px, -50%);
       animation: ticker_animation 15s infinite linear;
+      white-space: nowrap;
     }
 
     @keyframes ticker_animation {
@@ -622,7 +625,7 @@
       left: 48%;
     }
     &__content {
-      top: 34%;
+      top: 36%;
       left: 58%;
     }
   }
